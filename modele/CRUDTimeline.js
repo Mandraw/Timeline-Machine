@@ -3,8 +3,6 @@ var timelineModel = require('./timelineModel')
 var db = require('./&mongoose')
 
 function createTimeline (name, description, range, unitOfTime, authorId, privated) {
-  db.dbConnect()
-
   var TimelineModel = timelineModel.createModel()
   var timeline = new TimelineModel()
 
