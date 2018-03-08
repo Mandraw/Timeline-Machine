@@ -65,5 +65,5 @@ typings/
 
 # End of https://www.gitignore.io/api/node
 
-#db
-modele/&mongoose.js
+#dblogin
+modele/login.json
