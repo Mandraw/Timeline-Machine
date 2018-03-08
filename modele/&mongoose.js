@@ -1,7 +1,7 @@
 var mongoose = require('mongoose')
 
 function dbConnect() {
-    mongoose.connect('mongodb://localhost/timeline-machine', function(err) {
+    mongoose.connect('mongodb://Mandraw:Helvetica2012@ds261128.mlab.com:61128/timeline-machine', function(err) {
         if (err) { 
             console.log("connection err")
             throw err
@@ -34,7 +34,7 @@ function createTimeline(name, range, unitOfTime, authorId){
             console.log("Save error")
             throw err
         }
-        console.log('Commentaire ajouté avec succès !');
+        console.log('Timeline added !');
     })
 
     mongoose.connection.close();
