@@ -8,6 +8,11 @@ var sassMiddleware = require('node-sass-middleware')
 
 // db call
 var db = require('./modele/&mongoose')
+var CRUD = require('./modele/CRUDTimeline')
+
+db.connectionTest()
+
+CRUD.createTimeline('lol', 'lol', 1000, 'ans', 23, true)
 
 var index = require('./routes/index')
 var users = require('./routes/users')
@@ -17,6 +22,9 @@ var app = express()
 // view engine setup
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'pug')
+
+// static images setup
+app.use(express.static('public'))
 
 // uncomment after placing your favicon in /public
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')))
