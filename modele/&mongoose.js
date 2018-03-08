@@ -1,26 +1,5 @@
 var mongoose = require('mongoose')
-var dblogin = require('./login.json')
-var DB
-
-
-function dbConnect() {
-
-    options =  { poolSize : 100 , replicaSet : "rs-ds261128", keepAlive: 1, connectTimeoutMS: 30000, reconnectTries: 30, reconnectInterval: 5000}
-
-    mongoose.connect(dblogin.db.two, function(err,database) {
-        if (err) {
-            console.log("Connection error")
-            throw err 
-        }
-    })
-    console.log("Connection to the database is OK")
-}
-
-
-function connectionTest() {
-    dbConnect()
-    mongoose.connection.close()
-}
+var options = options =  { poolSize : 10000 , replicaSet : "rs-ds261128", keepAlive: 1, connectTimeoutMS: 30000, reconnectTries: 30, reconnectInterval: 5000}
 
 
 function dbSave(content) {
@@ -36,7 +15,5 @@ function dbSave(content) {
 
 
 module.exports = {
-    connectionTest,
-    dbSave,
-    dbConnect
+    dbSave
 }

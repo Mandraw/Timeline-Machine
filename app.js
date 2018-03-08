@@ -7,10 +7,8 @@ var bodyParser = require('body-parser')
 var sassMiddleware = require('node-sass-middleware')
 
 // db call
-var db = require('./modele/&mongoose')
+// var db = require('./modele/&mongoose')
 var CRUD = require('./modele/CRUDTimeline')
-
-db.connectionTest()
 
 CRUD.createTimeline('lol', 'lol', 1000, 'ans', 23, true)
 
