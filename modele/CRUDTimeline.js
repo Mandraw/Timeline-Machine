@@ -2,24 +2,24 @@ var mongoose = require('mongoose')
 var timelineModel = require('./timelineModel')
 var db = require('./&mongoose')
 
-function createTimeline(name, description, range, unitOfTime, authorId, private){
-    db.dbConnect()
-    
-    timelineModel = timelineModel.createModel()
-    var timeline = new timelineModel()
+function createTimeline (name, description, range, unitOfTime, authorId, privated) {
+  db.dbConnect()
 
-    timeline.NAME = name
-    timeline.DESCRIPTION = description
-    timeline.RANGE = range
-    timeline.UNITOFTIME = unitOfTime
-    timeline.AUTHORID = authorId
-    timeline.PRIVATE = private
+  var TimelineModel = timelineModel.createModel()
+  var timeline = new TimelineModel()
 
-    db.dbSave(timeline)
-    
-    mongoose.connection.close()
+  timeline.NAME = name
+  timeline.DESCRIPTION = description
+  timeline.RANGE = range
+  timeline.UNITOFTIME = unitOfTime
+  timeline.AUTHORID = authorId
+  timeline.PRIVATE = privated
+
+  db.dbSave(timeline)
+
+  mongoose.connection.close()
 }
 
 module.exports = {
-    createTimeline
+  createTimeline
 }
