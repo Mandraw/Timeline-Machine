@@ -1,5 +1,0 @@
-{"db":
-    { "one": "mongodb://Mandraw:Helvetica2012@ds261128.mlab.com:61128/timeline-machine",
-      "two": "mongodb://localhost:27017/timeline-machine"
-    }
-}
