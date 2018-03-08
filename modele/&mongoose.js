@@ -1,9 +1,13 @@
 var mongoose = require('mongoose')
 var dblogin = require('./login.json')
+var DB
+
 
 function dbConnect() {
 
-    mongoose.connect(dblogin.db.one, function(err) {
+    options =  { poolSize : 100 , replicaSet : "rs-ds261128", keepAlive: 1, connectTimeoutMS: 30000, reconnectTries: 30, reconnectInterval: 5000}
+
+    mongoose.connect(dblogin.db.two, function(err,database) {
         if (err) {
             console.log("Connection error")
             throw err 
