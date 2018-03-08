@@ -1,0 +1,22 @@
+extends layout
+
+block content
+    .container
+        form.form-horizontal
+            .form-group
+                label.col-sm-2.control-label(for='name') Name
+                .col-sm-6
+                input.form-control(placeholder='Enter Name...', type='text')
+            .form-group
+                label.col-sm-2.control-label(for='description') Description
+                .col-sm-6
+                textarea.form-control(placeholder='Enter Description...')
+            .form-group
+                label.col-sm-2.control-label(for='name') Name
+                .col-sm-6
+                input.form-control(placeholder='Enter Name...', type='text')
+            .form-group
+                label.col-sm-4.control-label(for='website') Do you want to keep this Timeline private ?
+                label.checkbox-inline.col-sm-6
+                    input(type='checkbox', value='option1')
+                    |           Yes
