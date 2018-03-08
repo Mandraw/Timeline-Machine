@@ -13,12 +13,10 @@ a {
 
 header > img {
   display: block;
-  width: 50%;
+  width: 300px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 2%; }
 
 footer {
   text-align: center; }
-
-/*# sourceMappingURL=style.css.map */
