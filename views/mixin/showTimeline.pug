@@ -1,5 +1,27 @@
-mixin showTimeline(id)
-    // make a form modal box appear
-    button.btn.btn-primary(href="") Add Event
+mixin showTimeline
+    // Button trigger modal
+    button.btn.btn-primary(type='button', data-toggle='modal', data-target='#exampleModalCenter') Add Event
+    // Modal
+    #exampleModalCenter.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalCenterTitle', aria-hidden='true')
+        .modal-dialog.modal-dialog-centered(role='document')
+            .modal-content
+                .modal-header
+                    h5#exampleModalLongTitle.modal-title Modal title
+                    button.close(type='button', data-dismiss='modal', aria-label='Close')
+                    span(aria-hidden='true') X
+                .modal-body
+                    form(action="")
+                        .form-group
+                            label.col-sm-4.control-label(for='name') Event name
+                            input.form-control(placeholder='Enter Event name...', type='text')
+                        .form-group
+                            label.col-sm-4.control-label(for='date') Event date
+                            input.form-control(placeholder='123...', type='number')
+                .modal-footer
+                    button.btn.btn-secondary(type='button', data-dismiss='modal') Close
+                    button.btn.btn-primary(type='button') Save changes
+
+
+    p #{timeline._id}
     .progress.timeline-bar
         .progress-bar(role='progressbar', style='width: 100%', aria-valuenow='100', aria-valuemin='0', aria-valuemax='100')

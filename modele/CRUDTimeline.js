@@ -1,10 +1,13 @@
 var mongoose = require('mongoose')
-var timelineModel = require('./timelineModel')
+var returntimeline = require('./timelineModel')
 var db = require('./&mongoose')
 var dblogin = require('./login.json')
+var timeline = returntimeline.returnTimeline()
+var TimelineModel = returntimeline.returnTimelineModel()
 
+// Saves Timeline to MongoDB
 function createTimeline (name, description, range, unitOfTime, authorId, privated) {
-  mongoose.connect(dblogin.db.one, function (err, database) {
+  mongoose.connect(dblogin.db.one, (err, database) => {
     if (err) {
       console.log('Connection error')
       throw err
@@ -12,8 +15,6 @@ function createTimeline (name, description, range, unitOfTime, authorId, private
   })
     .then(
       () => {
-        var timeline = timelineModel.returnTimeline()
-
         timeline.NAME = name
         timeline.DESCRIPTION = description
         timeline.RANGE = range
@@ -30,9 +31,33 @@ function createTimeline (name, description, range, unitOfTime, authorId, private
     )
 }
 
-// Test Line
+// Queries timeline object
+function findTimelineById (id) {
+  return new Promise((resolve, reject) => {
+    TimelineModel.findById(id, (err, timeline) => {
+      if (err) {
+        reject(err)
+      }
+      resolve(timeline)
+    })
+  })
+}
+
+// waits for ^ and returns the timeline
+async function getTimeline (id) {
+  try {
+    var tl = await findTimelineById(id)
+    console.log(tl.AUTHORID)
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+// Test Lines
 // createTimeline('LotR', 'La timeline de LotR', 10000, 'ans', '23', false)
 
 module.exports = {
-  createTimeline
+  createTimeline,
+  findTimelineById,
+  getTimeline
 }
