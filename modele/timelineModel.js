@@ -19,7 +19,6 @@ createModel()
 
 // this is done like this because the model need to be instanciated only one time
 function returnTimeline () {
-  console.log(timeline)
   return timeline
 }
 
