@@ -2,4 +2,13 @@ extends layout
 
 block content
   .container
-    a.btn.btn-info(href="addTimeline") Add Timeline
+    if !id
+      a.btn.btn-info(href="addTimeline") Add Timeline
+      .col-md-12.text-center(style="margin-top : 6%;")
+        h3 Autres Timelines
+      .col-md-12.carousel
+        a(href="visualizeOne?id=")
+          img(src="/images/placeholder-carousel.png" value="PLACEHOLDER")
+          h1#placeholder PLACEHOLDER
+    else
+      +showTimeline

@@ -12,8 +12,7 @@ function createTimeline (name, description, range, unitOfTime, authorId, private
   })
     .then(
       () => {
-        var TimelineModel = timelineModel.createModel()
-        var timeline = new TimelineModel()
+        var timeline = timelineModel.returnTimeline()
 
         timeline.NAME = name
         timeline.DESCRIPTION = description
@@ -27,8 +26,12 @@ function createTimeline (name, description, range, unitOfTime, authorId, private
       err => { throw err }
     ).then(() => {
       mongoose.connection.close()
-    })
+    }, err => { throw err }
+    )
 }
+
+// Test Line
+// createTimeline('LotR', 'La timeline de LotR', 10000, 'ans', '23', false)
 
 module.exports = {
   createTimeline

@@ -1,4 +1,5 @@
 var mongoose = require('mongoose')
+var timeline
 
 function createModel () {
   var timelineSchema = new mongoose.Schema({
@@ -10,10 +11,18 @@ function createModel () {
     PRIVATE: { type: Boolean, required: true }
   })
 
-  var timelineModel = mongoose.model('timeline', timelineSchema)
-  return timelineModel
+  var TimelineModel = mongoose.model('timeline', timelineSchema)
+  timeline = new TimelineModel()
+}
+
+createModel()
+
+// this is done like this because the model need to be instanciated only one time
+function returnTimeline () {
+  console.log(timeline)
+  return timeline
 }
 
 module.exports = {
-  createModel
+  returnTimeline
 }
