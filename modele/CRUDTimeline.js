@@ -47,7 +47,7 @@ function findTimelineById (id) {
 async function getTimeline (id) {
   try {
     var tl = await findTimelineById(id)
-    console.log(tl.AUTHORID)
+    return tl.AUTHORID
   } catch (error) {
     console.log(error)
   }

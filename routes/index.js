@@ -8,6 +8,16 @@ router.get('/addTimeline', function (req, res, next) {
 })
   .get('/visualizeOne', function (req, res, next) {
     var timeline = CRUD.getTimeline(req.query.id)
+
+    const pop = async () => {
+      try {
+        await console.log(timeline)
+      } catch (err) {
+        console.log(err)
+      }
+    }
+    pop()
+
     res.render('index', { timeline: timeline })
   })
   .get('/:page', function (req, res, next) {
